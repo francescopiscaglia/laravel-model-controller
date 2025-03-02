@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movies</title>
-</head>
+@section('content')
+    <div class="container">
+        <div class="row row-cols-2 row-cols-md-4 g-4">
 
-<body>
-    <h1>
-        I miei film su Laravel
-    </h1>
+            @foreach ($movies as $movie)
+                <div class="col">
+                    <div class="card" style="">
+                        <div class="card-body m-0">
+                            <h5 class="card-title">{{ $movie['title'] }}</h5>
+                            <p class="card-text text-muted">
+                                ({{ $movie['original_title'] }})
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
-    <ul>
-
-        @foreach ($movies as $movie)
-            <li>
-                {{ $movie['title'] }}
-            </li>
-        @endforeach
-    </ul>
-
-</body>
-
-</html>
+        </div>
+    </div>
+@endsection
